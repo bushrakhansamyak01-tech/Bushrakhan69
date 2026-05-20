@@ -1,0 +1,1879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Bushra Khan – Motivational Speaker & Life Coach. Transform your mindset, elevate your life. Book a consultation today.">
+<meta name="keywords" content="motivational speaker, life coach, Bushra Khan, career coaching, personal development">
+<title>Bushra Khan — Motivational Speaker & Life Coach</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Zen+Kaku+Gothic+New:wght@300;400;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<style>
+/* ============================
+   CSS VARIABLES & RESET
+   ============================ */
+:root {
+  --ink: #0a0a0a;
+  --paper: #f7f4ef;
+  --cream: #ede8df;
+  --red: #c0392b;
+  --red-light: #e74c3c;
+  --gold: #b8956a;
+  --smoke: #8a8580;
+  --white: #ffffff;
+  --glass: rgba(247,244,239,0.85);
+  --shadow: 0 20px 60px rgba(10,10,10,0.08);
+  --shadow-deep: 0 40px 100px rgba(10,10,10,0.15);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Zen Kaku Gothic New', sans-serif;
+  --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+[data-theme="dark"] {
+  --ink: #f0ebe3;
+  --paper: #111110;
+  --cream: #1a1915;
+  --red: #e74c3c;
+  --smoke: #7a7570;
+  --glass: rgba(20,20,18,0.9);
+  --shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: var(--ink);
+  overflow-x: hidden;
+  transition: background 0.5s, color 0.5s;
+  cursor: none;
+}
+
+/* ============================
+   CUSTOM CURSOR
+   ============================ */
+.cursor {
+  width: 12px; height: 12px;
+  background: var(--red);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9999;
+  transition: transform 0.15s ease;
+  mix-blend-mode: multiply;
+}
+.cursor-follower {
+  width: 36px; height: 36px;
+  border: 1px solid var(--red);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9998;
+  transition: transform 0.35s ease, opacity 0.3s;
+  opacity: 0.5;
+}
+
+/* ============================
+   SCROLL PROGRESS BAR
+   ============================ */
+#progress-bar {
+  position: fixed; top: 0; left: 0; z-index: 10000;
+  height: 2px; background: var(--red);
+  width: 0%; transition: width 0.1s;
+}
+
+/* ============================
+   LOADING SCREEN
+   ============================ */
+#loader {
+  position: fixed; inset: 0;
+  background: var(--ink);
+  z-index: 99999;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 24px;
+  transition: opacity 0.8s, visibility 0.8s;
+}
+#loader.hidden { opacity: 0; visibility: hidden; }
+.loader-kanji {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 80px);
+  color: var(--paper);
+  letter-spacing: 0.1em;
+  animation: fadeInUp 1s ease forwards;
+}
+.loader-line {
+  width: 0; height: 1px;
+  background: var(--red);
+  animation: expand 1.5s ease 0.5s forwards;
+}
+@keyframes expand { to { width: 200px; } }
+@keyframes fadeInUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+/* ============================
+   NAVIGATION
+   ============================ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 24px 6%;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: var(--transition);
+}
+nav.scrolled {
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 16px 6%;
+  box-shadow: 0 1px 40px rgba(0,0,0,0.06);
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 22px; font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+.nav-logo span { color: var(--red); }
+.nav-links {
+  display: flex; gap: 40px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 13px; font-weight: 300;
+  color: var(--ink); text-decoration: none;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  position: relative; padding-bottom: 4px;
+}
+.nav-links a::after {
+  content: ''; position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 1px;
+  background: var(--red);
+  transition: width 0.3s ease;
+}
+.nav-links a:hover::after { width: 100%; }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.btn-book-nav {
+  padding: 10px 24px;
+  background: var(--red); color: var(--white);
+  border: none; border-radius: 2px;
+  font-family: var(--font-body); font-size: 12px;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  cursor: pointer; text-decoration: none;
+  transition: var(--transition);
+}
+.btn-book-nav:hover { background: var(--red-light); transform: translateY(-1px); }
+.theme-toggle {
+  background: none; border: 1px solid var(--smoke);
+  width: 36px; height: 36px; border-radius: 50%;
+  cursor: pointer; color: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; transition: var(--transition);
+}
+.theme-toggle:hover { border-color: var(--red); }
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; background: none; border: none;
+}
+.hamburger span {
+  display: block; width: 24px; height: 1.5px;
+  background: var(--ink); transition: var(--transition);
+}
+.mobile-menu {
+  display: none; position: fixed;
+  inset: 0; background: var(--paper);
+  z-index: 999; flex-direction: column;
+  align-items: center; justify-content: center; gap: 40px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: var(--font-display);
+  font-size: 32px; color: var(--ink);
+  text-decoration: none; letter-spacing: 0.05em;
+}
+.mobile-menu a:hover { color: var(--red); }
+
+/* ============================
+   HERO SECTION
+   ============================ */
+#hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+.hero-left {
+  display: flex; flex-direction: column;
+  justify-content: center; padding: 140px 6% 80px;
+  position: relative; z-index: 2;
+}
+.hero-tagline {
+  font-size: 11px; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--red);
+  margin-bottom: 28px; display: flex; align-items: center; gap: 16px;
+}
+.hero-tagline::before {
+  content: ''; display: block;
+  width: 40px; height: 1px; background: var(--red);
+}
+.hero-headline {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4.5vw, 68px);
+  font-weight: 300; line-height: 1.1;
+  letter-spacing: -0.01em; margin-bottom: 24px;
+  color: var(--ink);
+}
+.hero-headline em { font-style: italic; color: var(--red); }
+.hero-sub {
+  font-size: 15px; font-weight: 300;
+  color: var(--smoke); line-height: 1.7;
+  max-width: 440px; margin-bottom: 48px;
+  letter-spacing: 0.02em;
+}
+.hero-cta { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 60px; }
+.btn-primary {
+  padding: 16px 36px;
+  background: var(--ink); color: var(--paper);
+  border: 1px solid var(--ink);
+  font-family: var(--font-body); font-size: 12px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  text-decoration: none; cursor: pointer;
+  transition: var(--transition);
+  position: relative; overflow: hidden;
+}
+.btn-primary::before {
+  content: ''; position: absolute;
+  inset: 0; background: var(--red);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.btn-primary:hover::before { transform: scaleX(1); }
+.btn-primary span { position: relative; z-index: 1; }
+.btn-outline {
+  padding: 16px 36px;
+  background: transparent; color: var(--ink);
+  border: 1px solid var(--ink);
+  font-family: var(--font-body); font-size: 12px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  text-decoration: none; cursor: pointer;
+  transition: var(--transition);
+}
+.btn-outline:hover { background: var(--ink); color: var(--paper); }
+.hero-social { display: flex; gap: 20px; }
+.hero-social a {
+  font-size: 11px; color: var(--smoke);
+  text-decoration: none; letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+.hero-social a:hover { color: var(--red); }
+.hero-right {
+  position: relative; overflow: hidden;
+}
+.hero-image-wrap {
+  position: absolute; inset: 0;
+  background: var(--cream);
+}
+.hero-image-placeholder {
+  position: absolute; inset: 0;
+  display: flex; align-items: flex-end; justify-content: center;
+  padding-bottom: 60px;
+}
+.hero-img-bg {
+  width: 65%; max-width: 380px;
+  aspect-ratio: 3/4;
+  background: linear-gradient(160deg, var(--cream) 0%, var(--gold) 100%);
+  opacity: 0.4; position: absolute; bottom: 40px;
+  border-radius: 2px;
+}
+.hero-name-vertical {
+  position: absolute; right: 32px; top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  font-family: var(--font-display); font-size: 11px;
+  letter-spacing: 0.4em; color: var(--smoke);
+  text-transform: uppercase;
+  transform-origin: center;
+}
+.hero-decor-num {
+  position: absolute; bottom: 40px; left: 40px;
+  font-family: var(--font-display); font-size: 100px;
+  font-weight: 300; color: var(--cream);
+  line-height: 1; user-select: none;
+  opacity: 0.6;
+}
+.hero-scroll-hint {
+  position: absolute; bottom: 40px; left: 6%;
+  display: flex; align-items: center; gap: 12px;
+  font-size: 10px; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--smoke);
+  animation: bounce 2s ease-in-out infinite;
+}
+.hero-scroll-hint::before {
+  content: ''; width: 1px; height: 40px;
+  background: var(--smoke); display: block;
+}
+@keyframes bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
+
+/* Typing text */
+.typed-text { color: var(--red); }
+.cursor-type { animation: blink 0.7s infinite; }
+@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
+
+/* Daily quote banner */
+.daily-quote {
+  background: var(--cream);
+  padding: 16px 6%; text-align: center;
+  font-family: var(--font-display); font-style: italic;
+  font-size: 15px; color: var(--smoke);
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid rgba(10,10,10,0.06);
+}
+.daily-quote strong { color: var(--red); font-weight: 400; }
+
+/* ============================
+   SECTION COMMONS
+   ============================ */
+section { padding: 100px 6%; }
+.section-label {
+  font-size: 10px; letter-spacing: 0.4em;
+  text-transform: uppercase; color: var(--red);
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 16px;
+}
+.section-label::before {
+  content: ''; width: 30px; height: 1px; background: var(--red);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.5vw, 52px);
+  font-weight: 300; line-height: 1.15;
+  letter-spacing: -0.01em; margin-bottom: 20px;
+}
+.section-title em { font-style: italic; color: var(--red); }
+.section-sub {
+  font-size: 15px; font-weight: 300;
+  color: var(--smoke); line-height: 1.7;
+  max-width: 560px; margin-bottom: 64px;
+}
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ============================
+   ABOUT SECTION
+   ============================ */
+#about { background: var(--cream); }
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+}
+.about-image-wrap {
+  position: relative;
+}
+.about-img-placeholder {
+  width: 100%; aspect-ratio: 3/4;
+  background: linear-gradient(140deg, var(--paper) 0%, var(--gold) 120%);
+  opacity: 0.5; border-radius: 2px;
+}
+.about-img-frame {
+  position: absolute; inset: -16px; border: 1px solid var(--red);
+  border-radius: 2px; z-index: -1;
+}
+.about-years {
+  position: absolute; bottom: -20px; right: -20px;
+  background: var(--red); color: var(--white);
+  padding: 24px; text-align: center;
+}
+.about-years .num {
+  font-family: var(--font-display);
+  font-size: 48px; font-weight: 300; display: block;
+}
+.about-years .label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; }
+.about-text .mission {
+  font-family: var(--font-display); font-style: italic;
+  font-size: 20px; color: var(--smoke); line-height: 1.6;
+  margin-bottom: 28px; padding-left: 20px;
+  border-left: 2px solid var(--red);
+}
+.about-text p { font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--smoke); margin-bottom: 16px; }
+.skills-bars { margin-top: 36px; }
+.skill-bar { margin-bottom: 20px; }
+.skill-bar-label {
+  display: flex; justify-content: space-between;
+  font-size: 12px; letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 8px;
+  color: var(--ink);
+}
+.skill-track {
+  height: 2px; background: rgba(10,10,10,0.1);
+  border-radius: 2px; overflow: hidden;
+}
+.skill-fill {
+  height: 100%; background: var(--red);
+  border-radius: 2px; width: 0;
+  transition: width 1.5s ease;
+}
+.stat-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px; margin-top: 40px;
+}
+.stat-item { text-align: center; padding: 24px; }
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 40px; font-weight: 300;
+  color: var(--red); display: block;
+}
+.stat-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--smoke); }
+
+/* ============================
+   SERVICES SECTION
+   ============================ */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2px;
+}
+.service-card {
+  padding: 40px 32px;
+  background: var(--paper);
+  border: 1px solid transparent;
+  position: relative; overflow: hidden;
+  transition: var(--transition); cursor: pointer;
+}
+.service-card::before {
+  content: ''; position: absolute;
+  top: 0; left: 0;
+  width: 2px; height: 0;
+  background: var(--red);
+  transition: height 0.4s ease;
+}
+.service-card:hover { border-color: var(--red); transform: translateY(-4px); box-shadow: var(--shadow); }
+.service-card:hover::before { height: 100%; }
+.service-icon { font-size: 28px; margin-bottom: 20px; display: block; }
+.service-num {
+  position: absolute; top: 24px; right: 24px;
+  font-family: var(--font-display); font-size: 48px;
+  font-weight: 300; color: var(--cream); line-height: 1;
+  user-select: none;
+}
+.service-card h3 {
+  font-family: var(--font-display); font-size: 20px;
+  font-weight: 400; margin-bottom: 12px;
+}
+.service-card p { font-size: 13px; font-weight: 300; color: var(--smoke); line-height: 1.7; margin-bottom: 20px; }
+.service-link {
+  font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--red);
+  text-decoration: none; display: flex; align-items: center; gap: 8px;
+  transition: gap 0.3s;
+}
+.service-card:hover .service-link { gap: 14px; }
+
+/* ============================
+   WHY CHOOSE SECTION
+   ============================ */
+#why { background: var(--ink); color: var(--paper); }
+#why .section-title { color: var(--paper); }
+#why .section-sub { color: rgba(247,244,239,0.5); }
+.why-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1px; background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.why-card {
+  padding: 48px 32px; background: var(--ink);
+  text-align: center; transition: var(--transition);
+}
+.why-card:hover { background: rgba(192,57,43,0.08); }
+.why-card .icon { font-size: 36px; margin-bottom: 20px; display: block; }
+.why-num {
+  font-family: var(--font-display); font-size: 52px;
+  font-weight: 300; color: var(--red);
+  display: block; line-height: 1;
+}
+.why-card h3 { font-family: var(--font-display); font-size: 18px; font-weight: 400; margin-bottom: 12px; }
+.why-card p { font-size: 13px; font-weight: 300; color: rgba(247,244,239,0.5); line-height: 1.7; }
+
+/* ============================
+   TESTIMONIALS
+   ============================ */
+#testimonials { background: var(--cream); overflow: hidden; }
+.testimonial-slider { position: relative; overflow: hidden; }
+.testimonial-track {
+  display: flex; gap: 32px;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.testimonial-card {
+  min-width: calc(33.33% - 22px);
+  padding: 40px; background: var(--paper);
+  border-radius: 2px; flex-shrink: 0;
+}
+.testimonial-stars { color: var(--gold); font-size: 16px; margin-bottom: 20px; letter-spacing: 4px; }
+.testimonial-text {
+  font-family: var(--font-display); font-style: italic;
+  font-size: 17px; line-height: 1.6; color: var(--ink);
+  margin-bottom: 28px;
+}
+.testimonial-author { display: flex; align-items: center; gap: 16px; }
+.author-avatar {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--cream), var(--gold));
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 20px; font-weight: 300;
+  color: var(--white);
+}
+.author-info .name {
+  font-size: 14px; font-weight: 700; margin-bottom: 2px;
+}
+.author-info .role { font-size: 12px; color: var(--smoke); letter-spacing: 0.05em; }
+.slider-controls { display: flex; gap: 12px; margin-top: 40px; }
+.slider-btn {
+  width: 44px; height: 44px; border: 1px solid var(--smoke);
+  background: none; border-radius: 50%; cursor: pointer;
+  font-size: 18px; color: var(--ink); transition: var(--transition);
+  display: flex; align-items: center; justify-content: center;
+}
+.slider-btn:hover { background: var(--red); border-color: var(--red); color: var(--white); }
+.slider-dots { display: flex; gap: 8px; align-items: center; margin-left: 16px; }
+.dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--smoke); cursor: pointer; transition: var(--transition);
+}
+.dot.active { background: var(--red); transform: scale(1.5); }
+
+/* ============================
+   VIDEO SECTION
+   ============================ */
+#videos { background: var(--paper); }
+.video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+.video-card {
+  position: relative; aspect-ratio: 16/9;
+  background: var(--cream); border-radius: 2px;
+  overflow: hidden; cursor: pointer; group: true;
+}
+.video-card::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+}
+.video-thumb-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--cream), var(--gold));
+  opacity: 0.5;
+  transition: transform 0.5s ease;
+}
+.video-card:hover .video-thumb-bg { transform: scale(1.05); }
+.play-btn {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px; height: 60px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%; display: flex;
+  align-items: center; justify-content: center;
+  font-size: 22px; color: var(--red);
+  transition: var(--transition);
+}
+.video-card:hover .play-btn { transform: translate(-50%, -50%) scale(1.1); background: var(--red); color: var(--white); }
+.video-card-title {
+  position: absolute; bottom: 16px; left: 16px; right: 16px;
+  color: var(--white); font-size: 14px; font-weight: 300;
+}
+
+/* ============================
+   SUCCESS STORIES
+   ============================ */
+#stories { background: var(--cream); }
+.stories-timeline {
+  position: relative; padding-left: 40px;
+}
+.stories-timeline::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 1px; background: linear-gradient(to bottom, var(--red), transparent);
+}
+.story-item {
+  position: relative; padding: 0 0 60px 40px;
+}
+.story-item::before {
+  content: ''; position: absolute;
+  left: -4px; top: 4px;
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--red); border: 2px solid var(--paper);
+}
+.story-label { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
+.story-item h3 { font-family: var(--font-display); font-size: 22px; font-weight: 400; margin-bottom: 12px; }
+.story-item p { font-size: 14px; font-weight: 300; color: var(--smoke); line-height: 1.7; max-width: 600px; }
+.quote-slider { margin-top: 60px; }
+.inspirational-quote {
+  font-family: var(--font-display); font-style: italic;
+  font-size: clamp(24px, 3vw, 40px); font-weight: 300;
+  text-align: center; color: var(--ink);
+  line-height: 1.3; padding: 60px 0;
+  border-top: 1px solid rgba(10,10,10,0.08);
+  border-bottom: 1px solid rgba(10,10,10,0.08);
+}
+.inspirational-quote em { color: var(--red); }
+
+/* ============================
+   BLOG SECTION
+   ============================ */
+#blog { background: var(--paper); }
+.blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 32px; }
+.blog-card { cursor: pointer; }
+.blog-thumb {
+  aspect-ratio: 16/9; background: var(--cream);
+  border-radius: 2px; overflow: hidden; margin-bottom: 20px;
+  position: relative;
+}
+.blog-thumb-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--cream), var(--gold));
+  opacity: 0.5; transition: transform 0.5s;
+}
+.blog-card:hover .blog-thumb-bg { transform: scale(1.05); }
+.blog-cat {
+  font-size: 10px; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--red); margin-bottom: 10px;
+}
+.blog-card h3 {
+  font-family: var(--font-display); font-size: 20px;
+  font-weight: 400; margin-bottom: 12px; line-height: 1.3;
+  transition: color 0.3s;
+}
+.blog-card:hover h3 { color: var(--red); }
+.blog-card p { font-size: 13px; font-weight: 300; color: var(--smoke); line-height: 1.7; margin-bottom: 16px; }
+.blog-meta { font-size: 11px; color: var(--smoke); letter-spacing: 0.1em; }
+
+/* ============================
+   PRICING SECTION
+   ============================ */
+#pricing { background: var(--cream); }
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2px; }
+.pricing-card {
+  padding: 48px 36px; background: var(--paper);
+  position: relative; transition: var(--transition);
+}
+.pricing-card.featured {
+  background: var(--ink); color: var(--paper);
+}
+.pricing-card.featured .price-label,
+.pricing-card.featured .price-desc { color: rgba(247,244,239,0.5); }
+.pricing-badge {
+  position: absolute; top: 24px; right: 24px;
+  background: var(--red); color: var(--white);
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 4px 12px;
+}
+.price-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--smoke); margin-bottom: 16px; }
+.price-num {
+  font-family: var(--font-display); font-size: 56px;
+  font-weight: 300; line-height: 1; margin-bottom: 4px;
+}
+.price-num sup { font-size: 24px; vertical-align: super; }
+.price-desc { font-size: 12px; color: var(--smoke); margin-bottom: 32px; }
+.price-features { list-style: none; margin-bottom: 36px; }
+.price-features li {
+  padding: 10px 0; border-bottom: 1px solid rgba(10,10,10,0.06);
+  font-size: 14px; font-weight: 300;
+  display: flex; align-items: center; gap: 10px;
+}
+.pricing-card.featured .price-features li { border-color: rgba(255,255,255,0.06); }
+.price-features li::before { content: '—'; color: var(--red); flex-shrink: 0; }
+.btn-pricing {
+  width: 100%; padding: 14px;
+  background: none; border: 1px solid var(--ink);
+  font-family: var(--font-body); font-size: 12px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  cursor: pointer; transition: var(--transition);
+  color: var(--ink);
+}
+.btn-pricing:hover { background: var(--red); border-color: var(--red); color: var(--white); }
+.pricing-card.featured .btn-pricing { border-color: var(--paper); color: var(--paper); }
+.pricing-card.featured .btn-pricing:hover { background: var(--red); border-color: var(--red); }
+
+/* ============================
+   EVENTS SECTION
+   ============================ */
+#events { background: var(--paper); }
+.events-list { display: flex; flex-direction: column; gap: 1px; }
+.event-item {
+  display: grid; grid-template-columns: 80px 1fr auto;
+  gap: 32px; align-items: center;
+  padding: 28px 32px; background: var(--cream);
+  transition: var(--transition); cursor: pointer;
+}
+.event-item:hover { background: var(--paper); padding-left: 44px; }
+.event-date { text-align: center; }
+.event-date .day {
+  font-family: var(--font-display); font-size: 36px;
+  font-weight: 300; color: var(--red); display: block; line-height: 1;
+}
+.event-date .month { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--smoke); }
+.event-title { font-family: var(--font-display); font-size: 18px; font-weight: 400; margin-bottom: 6px; }
+.event-meta { font-size: 12px; color: var(--smoke); letter-spacing: 0.05em; }
+.event-status {
+  font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 6px 14px; border: 1px solid var(--red); color: var(--red);
+}
+
+/* ============================
+   FAQ SECTION
+   ============================ */
+#faq { background: var(--cream); }
+.faq-list { max-width: 720px; }
+.faq-item { border-bottom: 1px solid rgba(10,10,10,0.08); }
+.faq-question {
+  width: 100%; background: none; border: none;
+  padding: 24px 0; text-align: left; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--font-body); font-size: 15px; font-weight: 400;
+  color: var(--ink); transition: color 0.3s;
+}
+.faq-question:hover { color: var(--red); }
+.faq-icon { font-size: 20px; transition: transform 0.4s; flex-shrink: 0; color: var(--red); }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-answer {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.3s;
+}
+.faq-answer p {
+  padding-bottom: 24px; font-size: 14px; font-weight: 300;
+  color: var(--smoke); line-height: 1.8;
+}
+
+/* ============================
+   BOOKING SECTION
+   ============================ */
+#booking { background: var(--ink); color: var(--paper); }
+#booking .section-title { color: var(--paper); }
+#booking .section-sub { color: rgba(247,244,239,0.5); }
+.booking-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.booking-info { padding-top: 20px; }
+.booking-info p { font-size: 14px; font-weight: 300; color: rgba(247,244,239,0.6); line-height: 1.8; margin-bottom: 36px; }
+.contact-item { display: flex; gap: 16px; align-items: center; margin-bottom: 20px; }
+.contact-icon { font-size: 20px; }
+.contact-detail { font-size: 14px; font-weight: 300; color: rgba(247,244,239,0.7); }
+.whatsapp-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-top: 32px; padding: 14px 32px;
+  background: #25d366; color: var(--white);
+  border: none; border-radius: 2px; cursor: pointer;
+  font-family: var(--font-body); font-size: 13px;
+  letter-spacing: 0.1em; text-decoration: none;
+  transition: var(--transition);
+}
+.whatsapp-btn:hover { background: #1ebe5d; transform: translateY(-2px); }
+.booking-form { display: flex; flex-direction: column; gap: 16px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,244,239,0.5); }
+.form-input, .form-select, .form-textarea {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 14px 16px; color: var(--paper);
+  font-family: var(--font-body); font-size: 14px;
+  transition: border-color 0.3s; outline: none;
+  border-radius: 0;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--red); }
+.form-select option { background: var(--ink); }
+.form-textarea { min-height: 120px; resize: vertical; }
+.form-submit {
+  padding: 16px 48px; background: var(--red); color: var(--white);
+  border: none; cursor: pointer;
+  font-family: var(--font-body); font-size: 12px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  transition: var(--transition); align-self: flex-start;
+}
+.form-submit:hover { background: var(--red-light); transform: translateY(-2px); }
+.form-error { color: #ff6b6b; font-size: 11px; margin-top: 4px; }
+.form-success-popup {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.8); z-index: 9999;
+  display: none; align-items: center; justify-content: center;
+}
+.form-success-popup.show { display: flex; }
+.popup-box {
+  background: var(--paper); padding: 60px;
+  max-width: 480px; text-align: center;
+  animation: popIn 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+@keyframes popIn { from{transform:scale(0.8);opacity:0;} to{transform:scale(1);opacity:1;} }
+.popup-icon { font-size: 48px; margin-bottom: 20px; }
+.popup-box h3 { font-family: var(--font-display); font-size: 28px; font-weight: 300; margin-bottom: 12px; color: var(--ink); }
+.popup-box p { font-size: 14px; color: var(--smoke); margin-bottom: 28px; }
+.popup-close { padding: 12px 32px; background: var(--red); color: var(--white); border: none; cursor: pointer; font-family: var(--font-body); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; }
+
+/* ============================
+   NEWSLETTER
+   ============================ */
+#newsletter {
+  background: linear-gradient(135deg, var(--red) 0%, #922b21 100%);
+  color: var(--white); text-align: center; padding: 80px 6%;
+}
+#newsletter .section-title { color: var(--white); }
+#newsletter .section-label::before { background: rgba(255,255,255,0.5); }
+#newsletter .section-label { color: rgba(255,255,255,0.7); }
+.newsletter-form {
+  display: flex; gap: 0; max-width: 480px; margin: 0 auto;
+}
+.newsletter-input {
+  flex: 1; padding: 16px 20px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-right: none; color: var(--white);
+  font-family: var(--font-body); font-size: 14px;
+  outline: none;
+}
+.newsletter-input::placeholder { color: rgba(255,255,255,0.5); }
+.newsletter-btn {
+  padding: 16px 32px; background: var(--white);
+  color: var(--red); border: none; cursor: pointer;
+  font-family: var(--font-body); font-size: 12px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  transition: var(--transition);
+}
+.newsletter-btn:hover { background: var(--ink); color: var(--white); }
+
+/* ============================
+   QUERY SECTION
+   ============================ */
+#query { background: var(--paper); }
+.query-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+.query-form { display: flex; flex-direction: column; gap: 16px; }
+.query-input, .query-textarea {
+  background: var(--cream); border: 1px solid transparent;
+  padding: 14px 16px; color: var(--ink);
+  font-family: var(--font-body); font-size: 14px;
+  transition: border-color 0.3s; outline: none;
+}
+.query-input:focus, .query-textarea:focus { border-color: var(--red); }
+.query-textarea { min-height: 120px; resize: vertical; }
+.btn-query {
+  padding: 14px 36px; background: var(--ink); color: var(--paper);
+  border: none; cursor: pointer;
+  font-family: var(--font-body); font-size: 12px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  transition: var(--transition); align-self: flex-start;
+}
+.btn-query:hover { background: var(--red); }
+.query-social { margin-top: 40px; display: flex; flex-direction: column; gap: 12px; }
+.social-row {
+  display: flex; align-items: center; gap: 16px;
+  font-size: 13px; font-weight: 300; color: var(--smoke);
+  text-decoration: none; transition: color 0.3s;
+}
+.social-row:hover { color: var(--red); }
+.social-icon-box {
+  width: 40px; height: 40px; background: var(--cream);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; transition: var(--transition);
+}
+.social-row:hover .social-icon-box { background: var(--red); }
+
+/* ============================
+   ACHIEVEMENTS / CERTIFICATES
+   ============================ */
+#achievements { background: var(--cream); }
+.achievements-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.achievement-card {
+  padding: 32px 24px; background: var(--paper); text-align: center;
+  border-bottom: 2px solid transparent; transition: var(--transition);
+}
+.achievement-card:hover { border-bottom-color: var(--red); transform: translateY(-4px); }
+.achievement-icon { font-size: 32px; margin-bottom: 16px; display: block; }
+.achievement-card h4 { font-family: var(--font-display); font-size: 16px; font-weight: 400; margin-bottom: 8px; }
+.achievement-card p { font-size: 12px; color: var(--smoke); }
+
+/* ============================
+   CLIENT LOGOS
+   ============================ */
+#clients { background: var(--paper); padding: 60px 6%; }
+.clients-label { text-align: center; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--smoke); margin-bottom: 40px; }
+.logos-track { display: flex; gap: 60px; align-items: center; justify-content: center; flex-wrap: wrap; }
+.logo-item {
+  font-family: var(--font-display); font-size: 18px;
+  font-weight: 300; color: var(--smoke); letter-spacing: 0.1em;
+  opacity: 0.5; transition: opacity 0.3s;
+}
+.logo-item:hover { opacity: 1; color: var(--red); }
+
+/* ============================
+   FOOTER
+   ============================ */
+footer {
+  background: var(--ink); color: rgba(247,244,239,0.6);
+  padding: 80px 6% 40px;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px; margin-bottom: 60px;
+}
+.footer-brand .logo {
+  font-family: var(--font-display); font-size: 24px;
+  color: var(--paper); margin-bottom: 20px; display: block;
+}
+.footer-brand .logo span { color: var(--red); }
+.footer-brand p { font-size: 13px; font-weight: 300; line-height: 1.7; max-width: 280px; }
+.footer-col h4 {
+  font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--paper); margin-bottom: 24px;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul a {
+  font-size: 13px; font-weight: 300; color: rgba(247,244,239,0.5);
+  text-decoration: none; transition: color 0.3s;
+}
+.footer-col ul a:hover { color: var(--red); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 32px; display: flex;
+  justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+}
+.footer-quote {
+  font-family: var(--font-display); font-style: italic;
+  font-size: 14px; color: rgba(247,244,239,0.3);
+}
+.footer-copy { font-size: 12px; color: rgba(247,244,239,0.3); }
+
+/* ============================
+   BACK TO TOP
+   ============================ */
+#back-top {
+  position: fixed; bottom: 40px; right: 40px;
+  width: 44px; height: 44px;
+  background: var(--red); color: var(--white);
+  border: none; border-radius: 50%; cursor: pointer;
+  font-size: 20px; z-index: 900;
+  opacity: 0; visibility: hidden;
+  transition: var(--transition);
+  display: flex; align-items: center; justify-content: center;
+}
+#back-top.visible { opacity: 1; visibility: visible; }
+#back-top:hover { transform: translateY(-4px); }
+
+/* ============================
+   FLOATING QUOTES
+   ============================ */
+.floating-quote {
+  position: fixed; bottom: 120px; right: 40px;
+  max-width: 220px; padding: 16px 20px;
+  background: var(--glass); backdrop-filter: blur(10px);
+  border-left: 2px solid var(--red);
+  font-family: var(--font-display); font-style: italic;
+  font-size: 13px; color: var(--ink); line-height: 1.5;
+  z-index: 800; opacity: 0; pointer-events: none;
+  transition: opacity 0.5s;
+}
+.floating-quote.show { opacity: 1; }
+
+/* ============================
+   CONSULTATION MODAL
+   ============================ */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.7); z-index: 9990;
+  display: none; align-items: center; justify-content: center;
+  backdrop-filter: blur(4px);
+}
+.modal-overlay.open { display: flex; }
+.modal-box {
+  background: var(--paper); max-width: 520px; width: 90%;
+  padding: 48px; position: relative;
+  animation: popIn 0.4s ease;
+}
+.modal-close {
+  position: absolute; top: 20px; right: 20px;
+  background: none; border: none; font-size: 24px;
+  cursor: pointer; color: var(--smoke); transition: color 0.3s;
+}
+.modal-close:hover { color: var(--red); }
+.modal-box h3 { font-family: var(--font-display); font-size: 28px; font-weight: 300; margin-bottom: 8px; }
+.modal-box p { font-size: 14px; color: var(--smoke); margin-bottom: 28px; }
+.modal-form { display: flex; flex-direction: column; gap: 14px; }
+.modal-input, .modal-select {
+  padding: 14px 16px; background: var(--cream);
+  border: 1px solid transparent; outline: none;
+  font-family: var(--font-body); font-size: 14px; color: var(--ink);
+  transition: border-color 0.3s;
+}
+.modal-input:focus, .modal-select:focus { border-color: var(--red); }
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media (max-width: 1024px) {
+  .about-grid, .booking-grid, .query-grid { grid-template-columns: 1fr; gap: 48px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  #hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .hero-left { min-height: 100vh; }
+}
+@media (max-width: 768px) {
+  section { padding: 80px 5%; }
+  .nav-links { display: none; }
+  .btn-book-nav { display: none; }
+  .hamburger { display: flex; }
+  .testimonial-card { min-width: calc(100% - 0px); }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .newsletter-form { flex-direction: column; }
+  .newsletter-input { border-right: 1px solid rgba(255,255,255,0.2); }
+  .event-item { grid-template-columns: 60px 1fr; }
+  .event-status { display: none; }
+  .stat-grid { grid-template-columns: 1fr 1fr; }
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  .floating-quote { display: none; }
+  .cursor, .cursor-follower { display: none; }
+  body { cursor: auto; }
+}
+@media (max-width: 480px) {
+  .hero-headline { font-size: 32px; }
+  .section-title { font-size: 26px; }
+  .why-grid, .stat-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body data-theme="light">
+
+<!-- Custom cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<!-- Scroll progress -->
+<div id="progress-bar"></div>
+
+<!-- Loading Screen -->
+<div id="loader">
+  <div class="loader-kanji">武志</div>
+  <div class="loader-line"></div>
+</div>
+
+<!-- Navigation -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">Bushra <span>Khan</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#query">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+    <a href="#booking" class="btn-book-nav">Book Consultation</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#testimonials" onclick="closeMobile()">Reviews</a>
+  <a href="#blog" onclick="closeMobile()">Blog</a>
+  <a href="#booking" onclick="closeMobile()">Book Consultation</a>
+  <a href="#query" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- Daily Quote Banner -->
+<div class="daily-quote" id="dailyQuoteBanner">
+  <strong>Daily Wisdom:</strong> <span id="dailyQuoteText">Loading...</span>
+</div>
+
+<!-- =================== HERO =================== -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-tagline">Motivational Speaker & Life Coach</div>
+    <h1 class="hero-headline">
+      Transform Your<br>
+      <em><span id="typedWord"></span><span class="cursor-type">|</span></em><br>
+      Transform Your Life
+    </h1>
+    <p class="hero-sub">
+      Empowering individuals across career, relationships, family, and personal growth. 
+      Join 1000+ lives already transformed through Bushra Khan's proven coaching methods.
+    </p>
+    <div class="hero-cta">
+      <a href="#booking" class="btn-primary"><span>Book Consultation</span></a>
+      <a href="#videos" class="btn-outline">Watch Sessions</a>
+    </div>
+    <div class="hero-social">
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Facebook</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-image-wrap">
+      <div class="hero-img-bg"></div>
+      <div class="hero-image-placeholder">
+        <div style="text-align:center; color: var(--smoke); font-family: var(--font-display); font-size:14px; letter-spacing:0.1em; z-index:2; position:relative;">
+          [ Bushra Khan ]<br><small>Professional Photo</small>
+        </div>
+      </div>
+      <div class="hero-name-vertical">Bushra Khan — Motivational Speaker</div>
+      <div class="hero-decor-num">01</div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">Scroll</div>
+</section>
+
+<!-- =================== ABOUT =================== -->
+<section id="about">
+  <div class="reveal">
+    <div class="section-label">About</div>
+    <h2 class="section-title">The Woman Behind<br><em>The Transformation</em></h2>
+    <p class="section-sub">A decade of dedication to human potential, guided by compassion and proven methodology.</p>
+  </div>
+  <div class="about-grid">
+    <div class="about-image-wrap reveal">
+      <div class="about-img-placeholder"></div>
+      <div class="about-img-frame"></div>
+      <div class="about-years">
+        <span class="num counter" data-target="10">0</span>
+        <span class="label">Years of<br>Experience</span>
+      </div>
+    </div>
+    <div class="about-text reveal">
+      <blockquote class="mission">
+        "Every person holds infinite potential. My mission is to unlock it — one conversation, one session, one transformation at a time."
+      </blockquote>
+      <p>Bushra Khan is a celebrated motivational speaker, certified life coach, and transformational trainer with over a decade of experience helping individuals break through their limitations and live with purpose.</p>
+      <p>Her approach blends psychological insight with practical strategy, creating lasting change in careers, relationships, mindset, and leadership capabilities. Trusted by professionals, students, and families alike.</p>
+      <div class="skills-bars">
+        <div class="skill-bar"><div class="skill-bar-label"><span>Life Coaching</span><span>95%</span></div><div class="skill-track"><div class="skill-fill" data-width="95"></div></div></div>
+        <div class="skill-bar"><div class="skill-bar-label"><span>Career Guidance</span><span>92%</span></div><div class="skill-track"><div class="skill-fill" data-width="92"></div></div></div>
+        <div class="skill-bar"><div class="skill-bar-label"><span>Public Speaking</span><span>98%</span></div><div class="skill-track"><div class="skill-fill" data-width="98"></div></div></div>
+        <div class="skill-bar"><div class="skill-bar-label"><span>Relationship Coaching</span><span>90%</span></div><div class="skill-track"><div class="skill-fill" data-width="90"></div></div></div>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-item"><span class="stat-num counter" data-target="1200">0</span><span class="stat-label">Lives Transformed</span></div>
+        <div class="stat-item"><span class="stat-num counter" data-target="500">0</span><span class="stat-label">Sessions Held</span></div>
+        <div class="stat-item"><span class="stat-num counter" data-target="98">0</span><span class="stat-label">% Satisfaction</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== SERVICES =================== -->
+<section id="services">
+  <div class="reveal">
+    <div class="section-label">Services</div>
+    <h2 class="section-title">What I Help You<br><em>Achieve</em></h2>
+    <p class="section-sub">Comprehensive coaching programs tailored to every dimension of your personal and professional life.</p>
+  </div>
+  <div class="services-grid" id="servicesGrid"></div>
+</section>
+
+<!-- =================== WHY CHOOSE =================== -->
+<section id="why">
+  <div class="reveal">
+    <div class="section-label">Why Choose</div>
+    <h2 class="section-title">Why People Trust<br><em>Bushra Khan</em></h2>
+    <p class="section-sub">Results-driven. Compassion-led. Proven by hundreds of success stories.</p>
+  </div>
+  <div class="why-grid" id="whyGrid"></div>
+</section>
+
+<!-- =================== TESTIMONIALS =================== -->
+<section id="testimonials">
+  <div class="reveal">
+    <div class="section-label">Testimonials</div>
+    <h2 class="section-title">What Clients<br><em>Say</em></h2>
+  </div>
+  <div class="testimonial-slider reveal">
+    <div class="testimonial-track" id="testimonialTrack"></div>
+    <div class="slider-controls">
+      <button class="slider-btn" id="prevBtn">←</button>
+      <button class="slider-btn" id="nextBtn">→</button>
+      <div class="slider-dots" id="sliderDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== VIDEO SECTION =================== -->
+<section id="videos">
+  <div class="reveal">
+    <div class="section-label">Sessions</div>
+    <h2 class="section-title">Watch &amp; <em>Get Inspired</em></h2>
+    <p class="section-sub">Preview powerful coaching moments and motivational talks.</p>
+  </div>
+  <div class="video-grid reveal" id="videoGrid"></div>
+</section>
+
+<!-- =================== SUCCESS STORIES =================== -->
+<section id="stories">
+  <div class="reveal">
+    <div class="section-label">Success Stories</div>
+    <h2 class="section-title">Real People,<br><em>Real Transformations</em></h2>
+  </div>
+  <div class="stories-timeline reveal" id="storiesTimeline"></div>
+  <div class="quote-slider reveal">
+    <div class="inspirational-quote" id="storyQuote">
+      "The journey of a thousand miles begins with a single <em>step forward</em>."
+    </div>
+  </div>
+</section>
+
+<!-- =================== BLOG =================== -->
+<section id="blog">
+  <div class="reveal">
+    <div class="section-label">Blog</div>
+    <h2 class="section-title">Motivation &amp;<br><em>Insights</em></h2>
+    <p class="section-sub">Practical wisdom for your daily growth journey.</p>
+  </div>
+  <div class="blog-grid reveal" id="blogGrid"></div>
+</section>
+
+<!-- =================== PRICING =================== -->
+<section id="pricing">
+  <div class="reveal">
+    <div class="section-label">Investment</div>
+    <h2 class="section-title">Session<br><em>Packages</em></h2>
+    <p class="section-sub">Transparent pricing for transformational coaching experiences.</p>
+  </div>
+  <div class="pricing-grid" id="pricingGrid"></div>
+</section>
+
+<!-- =================== EVENTS =================== -->
+<section id="events">
+  <div class="reveal">
+    <div class="section-label">Events</div>
+    <h2 class="section-title">Upcoming <em>Workshops</em></h2>
+    <p class="section-sub">Live sessions and group workshops — transformative experiences designed for breakthroughs.</p>
+  </div>
+  <div class="events-list reveal" id="eventsList"></div>
+</section>
+
+<!-- =================== ACHIEVEMENTS =================== -->
+<section id="achievements">
+  <div class="reveal">
+    <div class="section-label">Achievements</div>
+    <h2 class="section-title">Recognition &amp;<br><em>Certifications</em></h2>
+  </div>
+  <div class="achievements-grid reveal" id="achievementsGrid"></div>
+</section>
+
+<!-- =================== CLIENT LOGOS =================== -->
+<section id="clients">
+  <p class="clients-label">Trusted by Organizations Across Pakistan &amp; Beyond</p>
+  <div class="logos-track" id="clientLogos"></div>
+</section>
+
+<!-- =================== FAQ =================== -->
+<section id="faq">
+  <div class="reveal">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Common<br><em>Questions</em></h2>
+  </div>
+  <div class="faq-list reveal" id="faqList"></div>
+</section>
+
+<!-- =================== BOOKING =================== -->
+<section id="booking">
+  <div class="reveal">
+    <div class="section-label">Book Now</div>
+    <h2 class="section-title">Start Your<br><em>Transformation</em></h2>
+    <p class="section-sub">Take the first step. Book a consultation and let's begin your journey together.</p>
+  </div>
+  <div class="booking-grid">
+    <div class="booking-info reveal">
+      <p>Every transformation begins with a single decision. Whether you're seeking clarity in your career, strength in your relationships, or confidence in yourself — this consultation is your starting point.</p>
+      <div class="contact-item"><span class="contact-icon">📧</span><span class="contact-detail">bushra@bushrakhan.com</span></div>
+      <div class="contact-item"><span class="contact-icon">📞</span><span class="contact-detail">+92 300 0000000</span></div>
+      <div class="contact-item"><span class="contact-icon">📍</span><span class="contact-detail">Karachi, Pakistan (Online & In-person)</span></div>
+      <a href="https://wa.me/923000000000" class="whatsapp-btn" target="_blank">💬 Chat on WhatsApp</a>
+    </div>
+    <div class="reveal">
+      <form class="booking-form" id="bookingForm" novalidate>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Full Name</label><input type="text" class="form-input" id="bName" placeholder="Your name"><span class="form-error" id="bNameErr"></span></div>
+          <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" id="bEmail" placeholder="your@email.com"><span class="form-error" id="bEmailErr"></span></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Phone</label><input type="tel" class="form-input" id="bPhone" placeholder="+92 xxx xxxxxxx"><span class="form-error" id="bPhoneErr"></span></div>
+          <div class="form-group"><label class="form-label">Preferred Date</label><input type="date" class="form-input" id="bDate"><span class="form-error" id="bDateErr"></span></div>
+        </div>
+        <div class="form-group"><label class="form-label">Service</label><select class="form-select" id="bService"><option value="">Select a service...</option><option>Career Guidance</option><option>Relationship Coaching</option><option>Family Counseling</option><option>Confidence Building</option><option>Public Speaking Training</option><option>Leadership Coaching</option><option>Stress Management</option><option>Life Transformation</option></select><span class="form-error" id="bServiceErr"></span></div>
+        <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" id="bMessage" placeholder="Tell me about your goals and challenges..."></textarea></div>
+        <button type="submit" class="form-submit">Book My Consultation</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- =================== QUERY =================== -->
+<section id="query">
+  <div class="reveal">
+    <div class="section-label">Contact</div>
+    <h2 class="section-title">Have a<br><em>Question?</em></h2>
+    <p class="section-sub">I'm here to help. Send your query and I'll respond within 24 hours.</p>
+  </div>
+  <div class="query-grid">
+    <div class="reveal">
+      <form class="query-form" id="queryForm">
+        <input type="text" class="query-input" placeholder="Your Name">
+        <input type="email" class="query-input" placeholder="Your Email">
+        <input type="tel" class="query-input" placeholder="Phone (optional)">
+        <textarea class="query-textarea" placeholder="Your question or message..."></textarea>
+        <button type="submit" class="btn-query">Send Query</button>
+      </form>
+    </div>
+    <div class="reveal">
+      <p class="section-sub" style="margin-bottom:32px;">Connect with me on social media for daily motivation, tips, and updates.</p>
+      <div class="query-social" id="querySocial"></div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== NEWSLETTER =================== -->
+<section id="newsletter">
+  <div class="section-label" style="justify-content:center;">Newsletter</div>
+  <h2 class="section-title" style="text-align:center; color:white;">Get Daily<br><em style="color:rgba(255,255,255,0.7)">Motivation</em></h2>
+  <p style="text-align:center; color:rgba(255,255,255,0.6); font-size:15px; font-weight:300; margin-bottom:40px;">Subscribe for weekly coaching tips, success stories, and exclusive session offers.</p>
+  <div class="newsletter-form">
+    <input type="email" class="newsletter-input" placeholder="Enter your email address">
+    <button class="newsletter-btn">Subscribe</button>
+  </div>
+</section>
+
+<!-- =================== FOOTER =================== -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo">Bushra <span>Khan</span></span>
+      <p>Transforming mindsets and elevating lives through compassionate coaching and proven motivational strategies since 2014.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#testimonials">Reviews</a></li><li><a href="#blog">Blog</a></li><li><a href="#events">Events</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul><li><a href="#">Career Guidance</a></li><li><a href="#">Relationship Coaching</a></li><li><a href="#">Public Speaking</a></li><li><a href="#">Leadership</a></li><li><a href="#">Stress Management</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul><li><a href="#">Instagram</a></li><li><a href="#">YouTube</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">Facebook</a></li><li><a href="#">TikTok</a></li><li><a href="#">Telegram</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-quote">"Your transformation is your legacy."</span>
+    <span class="footer-copy">© 2025 Bushra Khan. All rights reserved.</span>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- Floating quote -->
+<div class="floating-quote" id="floatingQuote"></div>
+
+<!-- Form success popup -->
+<div class="form-success-popup" id="successPopup">
+  <div class="popup-box">
+    <div class="popup-icon">✅</div>
+    <h3>Consultation Booked!</h3>
+    <p>Thank you! Bushra Khan will reach out within 24 hours to confirm your session details.</p>
+    <button class="popup-close" onclick="document.getElementById('successPopup').classList.remove('show')">Close</button>
+  </div>
+</div>
+
+<!-- Consultation Modal -->
+<div class="modal-overlay" id="consultModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('consultModal').classList.remove('open')">×</button>
+    <h3>Quick Consultation</h3>
+    <p>Start your transformation journey in minutes.</p>
+    <form class="modal-form" onsubmit="return false;">
+      <input type="text" class="modal-input" placeholder="Your Name">
+      <input type="tel" class="modal-input" placeholder="WhatsApp Number">
+      <select class="modal-select"><option>Select Service</option><option>Career Guidance</option><option>Relationship Coaching</option><option>Life Transformation</option></select>
+      <button class="form-submit" type="submit" style="align-self:stretch;" onclick="document.getElementById('consultModal').classList.remove('open')">Request Callback</button>
+    </form>
+  </div>
+</div>
+
+<script>
+/* ============================
+   DATA
+   ============================ */
+const SERVICES = [
+  { icon: '🎯', title: 'Career Guidance', desc: 'Navigate your professional path with clarity. Discover your strengths, set goals, and build a career that fulfills you.' },
+  { icon: '💑', title: 'Relationship Coaching', desc: 'Build meaningful, lasting connections through better communication and emotional intelligence.' },
+  { icon: '👨‍👩‍👧', title: 'Family Counseling', desc: 'Strengthen family bonds, resolve conflicts, and create a harmonious home environment.' },
+  { icon: '🗺️', title: 'Future Planning', desc: 'Design your ideal life. Set a clear vision and build a strategic roadmap to achieve it.' },
+  { icon: '💪', title: 'Confidence Building', desc: 'Break free from self-doubt. Develop unshakable confidence that radiates in every area of life.' },
+  { icon: '✨', title: 'Personality Development', desc: 'Unlock your authentic self. Refine your character, presence, and personal brand.' },
+  { icon: '🎤', title: 'Public Speaking', desc: 'Command any room. Master the art of speaking with clarity, confidence, and impact.' },
+  { icon: '👑', title: 'Leadership Coaching', desc: 'Develop the vision, communication, and decisiveness of an exceptional leader.' },
+  { icon: '🧠', title: 'Success Mindset', desc: 'Reprogram limiting beliefs and install the mindset patterns of high achievers.' },
+  { icon: '🌿', title: 'Stress Management', desc: 'Reclaim your peace. Learn proven techniques to manage stress and restore balance.' },
+  { icon: '🗣️', title: 'Communication Skills', desc: 'Express yourself with precision and power. Master verbal and non-verbal communication.' },
+  { icon: '🦋', title: 'Life Transformation', desc: 'A holistic journey of change. Reinvent every dimension of your life from the inside out.' }
+];
+
+const WHY_CARDS = [
+  { icon: '🏆', num: '1200', label: 'Lives Transformed', desc: 'Over a thousand individuals have experienced profound, lasting change through our coaching.' },
+  { icon: '📅', num: '500', label: 'Sessions Delivered', desc: 'Hundreds of one-on-one and group sessions held across Pakistan and internationally.' },
+  { icon: '❤️', num: '98', label: '% Satisfaction', desc: 'Nearly every client reports significant positive change in their life within 30 days.' },
+  { icon: '🎓', num: '10', label: 'Years Experience', desc: 'A decade of dedicated practice in motivational coaching and life transformation.' },
+  { icon: '🌍', num: '15', label: 'Cities Reached', desc: 'Coaching programs conducted across 15+ cities in Pakistan and beyond.' }
+];
+
+const TESTIMONIALS = [
+  { name: 'Ayesha Raza', role: 'Marketing Manager', review: 'Bushra changed the trajectory of my career. Within 3 months of coaching, I landed my dream job and doubled my salary. Her belief in me unlocked a belief in myself.', stars: 5 },
+  { name: 'Ahmed Siddiqui', role: 'Entrepreneur', review: 'My relationships were falling apart. After just 6 sessions, I learned how to truly communicate. My marriage is stronger than ever. Bushra\'s wisdom is life-changing.', stars: 5 },
+  { name: 'Sana Malik', role: 'Teacher', review: 'I was paralyzed by fear of public speaking. Today I lead workshops for 200+ people. Bushra\'s coaching is gentle, powerful, and transformative.', stars: 5 },
+  { name: 'Usman Khan', role: 'IT Professional', review: 'The stress management techniques alone were worth every rupee. I sleep better, think clearer, and perform better at work. Incredible transformation.', stars: 5 },
+  { name: 'Fatima Noor', role: 'Student', review: 'As a final year student, I was lost about my future. Bushra helped me find my direction and purpose. Now I have a clear plan and unstoppable confidence.', stars: 5 },
+  { name: 'Tariq Hassan', role: 'Sales Director', review: 'My team\'s performance improved 40% after Bushra\'s leadership workshop. She understands people deeply and communicates in a way that truly resonates.', stars: 5 },
+  { name: 'Zainab Ali', role: 'Homemaker', review: 'I rediscovered myself as a person, not just a role. Bushra helped me find my voice, my confidence, and my worth. I am forever grateful.', stars: 5 },
+  { name: 'Bilal Chaudhry', role: 'Architect', review: 'The success mindset program rewired how I think about challenges. I now see every obstacle as an opportunity. My life has genuinely transformed.', stars: 5 },
+  { name: 'Hira Shahid', role: 'Doctor', review: 'Balancing career and family felt impossible. Bushra gave me the tools and mindset to thrive in both. Her compassion and expertise are unmatched.', stars: 5 },
+  { name: 'Kamran Iqbal', role: 'University Lecturer', review: 'Three months of coaching and I have more clarity, purpose, and joy than I have had in years. Bushra Khan is a true master of her craft.', stars: 5 }
+];
+
+const BLOG_POSTS = [
+  { cat: 'Career Tips', title: '7 Habits of Highly Effective Professionals', desc: 'Discover the daily practices that separate good professionals from extraordinary ones.', date: '12 Nov 2024' },
+  { cat: 'Relationships', title: 'The Language of Love: How to Truly Connect', desc: 'Communication patterns that build deeper intimacy and lasting relationships.', date: '5 Nov 2024' },
+  { cat: 'Success Habits', title: 'Morning Routines That Fuel Champions', desc: 'Transform your mornings and watch every other area of your life elevate.', date: '28 Oct 2024' },
+  { cat: 'Future Planning', title: 'Designing Your 5-Year Vision Board', desc: 'A step-by-step approach to mapping out your ideal future with precision.', date: '20 Oct 2024' },
+  { cat: 'Positive Thinking', title: 'Breaking Free from Limiting Beliefs', desc: 'Identify and dissolve the mental blocks keeping you from your potential.', date: '12 Oct 2024' },
+  { cat: 'Leadership', title: 'Leading with Empathy in the Modern Workplace', desc: 'Why emotional intelligence is now the most valuable leadership skill.', date: '1 Oct 2024' }
+];
+
+const PRICING_PLANS = [
+  { label: 'Starter', price: '3,999', unit: '/session', desc: 'Perfect for exploring coaching', features: ['60-min consultation', 'Goal setting session', 'Action plan document', 'Email follow-up support', '1 service area focus'] },
+  { label: 'Growth', price: '14,999', unit: '/month', desc: 'Most popular transformation package', featured: true, badge: 'Most Popular', features: ['4 x 60-min sessions', 'Personalized roadmap', 'WhatsApp support', 'Resource library access', 'Progress tracking', 'All service areas'] },
+  { label: 'Elite', price: '34,999', unit: '/month', desc: 'Complete life transformation', features: ['8 x 60-min sessions', 'Priority booking', '24/7 WhatsApp support', 'Video session recordings', 'Unlimited resources', 'Group workshop access', 'VIP community access'] }
+];
+
+const EVENTS = [
+  { day: '15', month: 'Dec', title: 'Confidence Masterclass', meta: 'Online — 3 Hours | 2:00 PM PKT', status: 'Open' },
+  { day: '22', month: 'Dec', title: 'Leadership for Women Workshop', meta: 'Karachi, Avari Hotel | Full Day', status: 'Filling Fast' },
+  { day: '5', month: 'Jan', title: 'New Year Mindset Reset', meta: 'Online — 2 Hours | 7:00 PM PKT', status: 'Open' },
+  { day: '18', month: 'Jan', title: 'Relationship Harmony Seminar', meta: 'Lahore, Pearl Continental | Half Day', status: 'Open' }
+];
+
+const FAQS = [
+  { q: 'How does the consultation process work?', a: 'We begin with a 30-minute discovery call to understand your goals, challenges, and what you want to achieve. From there, I design a personalized coaching plan. Sessions are available online via Zoom or in-person in Karachi.' },
+  { q: 'How long before I see results?', a: 'Most clients notice meaningful shifts within 2-3 sessions. Lasting transformation typically unfolds over 30-90 days, depending on the program and your commitment to the process.' },
+  { q: 'Are online sessions as effective as in-person?', a: 'Absolutely. My online sessions are designed to be as immersive and impactful as in-person experiences. Many clients across Pakistan and internationally report remarkable results through virtual coaching.' },
+  { q: 'What is your cancellation policy?', a: 'Sessions can be rescheduled up to 24 hours in advance without any charge. Cancellations within 24 hours are charged 50% of the session fee.' },
+  { q: 'Do you offer group coaching or corporate training?', a: 'Yes! I offer group coaching programs and tailored corporate workshops on leadership, communication, team dynamics, and stress management. Contact me for a customized proposal.' },
+  { q: 'Is everything shared in sessions confidential?', a: 'Complete confidentiality is fundamental to my practice. Everything discussed in our sessions remains strictly private. Your trust is the foundation of our coaching relationship.' }
+];
+
+const STORIES = [
+  { label: 'Career Transformation', title: 'From Burnout to Breakthrough', text: 'Sara was exhausted, underpaid, and unsure of her future. After 8 weeks of career coaching, she negotiated a 60% salary increase and transitioned to her dream role at a global firm.' },
+  { label: 'Relationship Healing', title: 'Rebuilding a Marriage from the Brink', text: 'On the verge of divorce after 7 years, Amir and Nadia entered relationship coaching. Three months later, they describe their connection as deeper and more loving than their earliest days together.' },
+  { label: 'Mindset Shift', title: 'Overcoming 20 Years of Self-Doubt', text: 'Rabia struggled with severe anxiety and low self-worth her entire adult life. Through the confidence building program, she became a public speaker, sharing her story to inspire others.' },
+  { label: 'Leadership Growth', title: 'From Team Member to CEO', text: 'Imran was passed over for promotions repeatedly. Six months of leadership coaching transformed his communication and strategic thinking — today he leads a 40-person team as Managing Director.' }
+];
+
+const ACHIEVEMENTS = [
+  { icon: '🏅', title: 'Certified Life Coach', year: 'ICF Accredited 2016' },
+  { icon: '🎖️', title: 'Best Motivational Speaker', year: 'Pakistan Awards 2022' },
+  { icon: '📜', title: 'NLP Practitioner', year: 'Certified 2018' },
+  { icon: '🌟', title: 'Forbes Featured', year: 'Forbes Pakistan 2023' },
+  { icon: '🎓', title: 'MSc Psychology', year: 'University of Karachi' },
+  { icon: '🏆', title: 'Top Trainer 2024', year: 'Asia Coaching Summit' }
+];
+
+const SOCIAL_LINKS = [
+  { icon: '📸', name: 'Instagram', handle: '@bushrakhan.official', url: '#' },
+  { icon: '▶️', name: 'YouTube', handle: 'Bushra Khan Official', url: '#' },
+  { icon: '💼', name: 'LinkedIn', handle: 'Bushra Khan', url: '#' },
+  { icon: '👥', name: 'Facebook', handle: 'BushraKhanCoach', url: '#' },
+  { icon: '🎵', name: 'TikTok', handle: '@bushrakhan', url: '#' },
+  { icon: '✈️', name: 'Telegram', handle: 'Bushra Khan Community', url: '#' }
+];
+
+const CLIENTS = ['TechnoServe PK', 'Karandaaz', 'Engro Corp', 'HBL Academy', 'Dawn Media', 'PTCL Foundation', 'Unilever PK'];
+
+const DAILY_QUOTES = [
+  "Your mindset is the canvas — make it a masterpiece.",
+  "Every day is a new opportunity to rewrite your story.",
+  "Success is not given. It is grown — from the inside out.",
+  "The bravest thing you can do is believe in your own potential.",
+  "Clarity precedes mastery. Know your why, and the how will follow.",
+  "You are not your past. You are the choices you make today.",
+  "Strength is not the absence of fear — it is moving forward despite it."
+];
+
+const FLOAT_QUOTES = [
+  "You are capable of more than you know.",
+  "Progress, not perfection.",
+  "One small step changes everything.",
+  "Your future self is watching. Make them proud."
+];
+
+/* ============================
+   LOADER
+   ============================ */
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hidden');
+    // Show floating quote after load
+    setTimeout(showFloatingQuote, 5000);
+    setInterval(showFloatingQuote, 25000);
+  }, 2000);
+});
+
+/* ============================
+   CURSOR
+   ============================ */
+const cursor = document.getElementById('cursor');
+const follower = document.getElementById('cursorFollower');
+let mx = 0, my = 0, fx = 0, fy = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.transform = `translate(${mx - 6}px, ${my - 6}px)`;
+});
+function animateFollower() {
+  fx += (mx - fx) * 0.12;
+  fy += (my - fy) * 0.12;
+  follower.style.transform = `translate(${fx - 18}px, ${fy - 18}px)`;
+  requestAnimationFrame(animateFollower);
+}
+animateFollower();
+
+/* ============================
+   PROGRESS BAR
+   ============================ */
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const pct = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+  document.getElementById('progress-bar').style.width = pct + '%';
+
+  // Navbar
+  const nav = document.getElementById('navbar');
+  if (window.scrollY > 60) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+
+  // Back to top
+  const btn = document.getElementById('back-top');
+  if (window.scrollY > 400) btn.classList.add('visible');
+  else btn.classList.remove('visible');
+
+  // Reveal
+  document.querySelectorAll('.reveal').forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 80) el.classList.add('visible');
+  });
+
+  // Skills
+  document.querySelectorAll('.skill-fill').forEach(bar => {
+    if (bar.getBoundingClientRect().top < window.innerHeight - 40) {
+      bar.style.width = bar.dataset.width + '%';
+    }
+  });
+
+  // Counters
+  document.querySelectorAll('.counter').forEach(el => {
+    if (!el.dataset.counted && el.getBoundingClientRect().top < window.innerHeight - 40) {
+      el.dataset.counted = true;
+      animateCounter(el, parseInt(el.dataset.target));
+    }
+  });
+});
+
+function animateCounter(el, target) {
+  let current = 0;
+  const step = target / 60;
+  const timer = setInterval(() => {
+    current += step;
+    if (current >= target) { el.textContent = target + (target === 98 ? '' : '+'); clearInterval(timer); }
+    else el.textContent = Math.floor(current) + '+';
+  }, 25);
+}
+
+/* ============================
+   THEME TOGGLE
+   ============================ */
+const themeToggle = document.getElementById('themeToggle');
+themeToggle.addEventListener('click', () => {
+  const body = document.body;
+  const isDark = body.getAttribute('data-theme') === 'dark';
+  body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  themeToggle.textContent = isDark ? '🌙' : '☀️';
+});
+
+/* ============================
+   MOBILE MENU
+   ============================ */
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.toggle('open');
+});
+function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+/* ============================
+   DAILY QUOTE
+   ============================ */
+const qi = Math.floor(Math.random() * DAILY_QUOTES.length);
+document.getElementById('dailyQuoteText').textContent = DAILY_QUOTES[qi];
+
+/* ============================
+   TYPING EFFECT
+   ============================ */
+const words = ['Mindset', 'Career', 'Confidence', 'Relationships', 'Life'];
+let wi = 0, ci = 0, deleting = false;
+function typeWord() {
+  const el = document.getElementById('typedWord');
+  const word = words[wi];
+  if (!deleting) {
+    el.textContent = word.slice(0, ++ci);
+    if (ci === word.length) { deleting = true; setTimeout(typeWord, 1500); return; }
+  } else {
+    el.textContent = word.slice(0, --ci);
+    if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; }
+  }
+  setTimeout(typeWord, deleting ? 60 : 110);
+}
+typeWord();
+
+/* ============================
+   RENDER SERVICES
+   ============================ */
+const sGrid = document.getElementById('servicesGrid');
+SERVICES.forEach((s, i) => {
+  sGrid.innerHTML += `<div class="service-card reveal">
+    <span class="service-num">${String(i+1).padStart(2,'0')}</span>
+    <span class="service-icon">${s.icon}</span>
+    <h3>${s.title}</h3>
+    <p>${s.desc}</p>
+    <a href="#booking" class="service-link">Learn More →</a>
+  </div>`;
+});
+
+/* ============================
+   RENDER WHY
+   ============================ */
+const wGrid = document.getElementById('whyGrid');
+WHY_CARDS.forEach(w => {
+  wGrid.innerHTML += `<div class="why-card reveal">
+    <span class="icon">${w.icon}</span>
+    <span class="why-num counter" data-target="${w.num}">0</span>
+    <h3>${w.label}</h3>
+    <p>${w.desc}</p>
+  </div>`;
+});
+
+/* ============================
+   TESTIMONIALS SLIDER
+   ============================ */
+const track = document.getElementById('testimonialTrack');
+const dotsContainer = document.getElementById('sliderDots');
+let currentSlide = 0;
+let perView = window.innerWidth < 768 ? 1 : 3;
+const totalSlides = TESTIMONIALS.length;
+
+TESTIMONIALS.forEach((t, i) => {
+  const initials = t.name.split(' ').map(n => n[0]).join('');
+  track.innerHTML += `<div class="testimonial-card">
+    <div class="testimonial-stars">${'★'.repeat(t.stars)}</div>
+    <p class="testimonial-text">"${t.review}"</p>
+    <div class="testimonial-author">
+      <div class="author-avatar">${initials}</div>
+      <div class="author-info"><div class="name">${t.name}</div><div class="role">${t.role}</div></div>
+    </div>
+  </div>`;
+  if (i < totalSlides - perView + 1) {
+    const dot = document.createElement('span');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  }
+});
+
+function goTo(n) {
+  currentSlide = Math.max(0, Math.min(n, totalSlides - perView));
+  const cardW = track.children[0].offsetWidth + 32;
+  track.style.transform = `translateX(-${currentSlide * cardW}px)`;
+  document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+}
+
+document.getElementById('prevBtn').addEventListener('click', () => goTo(currentSlide - 1));
+document.getElementById('nextBtn').addEventListener('click', () => goTo(currentSlide + 1));
+setInterval(() => goTo((currentSlide + 1) % (totalSlides - perView + 1)), 5000);
+
+/* ============================
+   RENDER VIDEOS
+   ============================ */
+const videoTitles = [
+  'How to Build Unshakable Confidence', 'Morning Habits That Change Everything',
+  'Mastering Difficult Conversations', 'Your 90-Day Transformation Blueprint',
+  'Leadership Lessons from the Trenches', 'Overcoming Fear and Self-Doubt'
+];
+const vGrid = document.getElementById('videoGrid');
+videoTitles.forEach(t => {
+  vGrid.innerHTML += `<div class="video-card">
+    <div class="video-thumb-bg"></div>
+    <div class="play-btn">▶</div>
+    <div class="video-card-title">${t}</div>
+  </div>`;
+});
+
+/* ============================
+   RENDER STORIES
+   ============================ */
+const stTimeline = document.getElementById('storiesTimeline');
+STORIES.forEach(s => {
+  stTimeline.innerHTML += `<div class="story-item reveal">
+    <div class="story-label">${s.label}</div>
+    <h3>${s.title}</h3>
+    <p>${s.text}</p>
+  </div>`;
+});
+
+/* ============================
+   RENDER BLOG
+   ============================ */
+const bGrid = document.getElementById('blogGrid');
+BLOG_POSTS.forEach(p => {
+  bGrid.innerHTML += `<div class="blog-card reveal">
+    <div class="blog-thumb"><div class="blog-thumb-bg"></div></div>
+    <div class="blog-cat">${p.cat}</div>
+    <h3>${p.title}</h3>
+    <p>${p.desc}</p>
+    <div class="blog-meta">${p.date} · 5 min read</div>
+  </div>`;
+});
+
+/* ============================
+   RENDER PRICING
+   ============================ */
+const pGrid = document.getElementById('pricingGrid');
+PRICING_PLANS.forEach(p => {
+  pGrid.innerHTML += `<div class="pricing-card ${p.featured ? 'featured' : ''} reveal">
+    ${p.badge ? `<span class="pricing-badge">${p.badge}</span>` : ''}
+    <div class="price-label">${p.label}</div>
+    <div class="price-num">₨${p.price}</div>
+    <div class="price-desc">${p.unit} · ${p.desc}</div>
+    <ul class="price-features">${p.features.map(f => `<li>${f}</li>`).join('')}</ul>
+    <button class="btn-pricing" onclick="document.getElementById('consultModal').classList.add('open')">Get Started</button>
+  </div>`;
+});
+
+/* ============================
+   RENDER EVENTS
+   ============================ */
+const eList = document.getElementById('eventsList');
+EVENTS.forEach(e => {
+  eList.innerHTML += `<div class="event-item reveal">
+    <div class="event-date"><span class="day">${e.day}</span><span class="month">${e.month}</span></div>
+    <div><div class="event-title">${e.title}</div><div class="event-meta">${e.meta}</div></div>
+    <div class="event-status">${e.status}</div>
+  </div>`;
+});
+
+/* ============================
+   RENDER ACHIEVEMENTS
+   ============================ */
+const aGrid = document.getElementById('achievementsGrid');
+ACHIEVEMENTS.forEach(a => {
+  aGrid.innerHTML += `<div class="achievement-card reveal">
+    <span class="achievement-icon">${a.icon}</span>
+    <h4>${a.title}</h4>
+    <p>${a.year}</p>
+  </div>`;
+});
+
+/* ============================
+   RENDER CLIENT LOGOS
+   ============================ */
+const cLogos = document.getElementById('clientLogos');
+CLIENTS.forEach(c => { cLogos.innerHTML += `<span class="logo-item">${c}</span>`; });
+
+/* ============================
+   RENDER FAQ
+   ============================ */
+const fList = document.getElementById('faqList');
+FAQS.forEach((f, i) => {
+  fList.innerHTML += `<div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(${i})">
+      <span>${f.q}</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer" id="faq-${i}"><p>${f.a}</p></div>
+  </div>`;
+});
+function toggleFaq(i) {
+  const item = document.querySelectorAll('.faq-item')[i];
+  const ans = document.getElementById('faq-' + i);
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(el => { el.classList.remove('open'); el.querySelector('.faq-answer').style.maxHeight = null; });
+  if (!isOpen) { item.classList.add('open'); ans.style.maxHeight = ans.scrollHeight + 'px'; }
+}
+
+/* ============================
+   RENDER SOCIAL
+   ============================ */
+const sSocial = document.getElementById('querySocial');
+SOCIAL_LINKS.forEach(s => {
+  sSocial.innerHTML += `<a href="${s.url}" class="social-row">
+    <div class="social-icon-box">${s.icon}</div>
+    <span>${s.name}: ${s.handle}</span>
+  </a>`;
+});
+
+/* ============================
+   BOOKING FORM VALIDATION
+   ============================ */
+document.getElementById('bookingForm').addEventListener('submit', e => {
+  e.preventDefault();
+  let valid = true;
+  const name = document.getElementById('bName');
+  const email = document.getElementById('bEmail');
+  const phone = document.getElementById('bPhone');
+  const date = document.getElementById('bDate');
+  const service = document.getElementById('bService');
+  
+  function setErr(id, msg) { document.getElementById(id).textContent = msg; valid = false; }
+  function clearErr(id) { document.getElementById(id).textContent = ''; }
+  
+  clearErr('bNameErr'); clearErr('bEmailErr'); clearErr('bPhoneErr'); clearErr('bDateErr'); clearErr('bServiceErr');
+  
+  if (!name.value.trim()) setErr('bNameErr', 'Please enter your name.');
+  if (!email.value || !/\S+@\S+\.\S+/.test(email.value)) setErr('bEmailErr', 'Please enter a valid email.');
+  if (!phone.value.trim()) setErr('bPhoneErr', 'Please enter your phone number.');
+  if (!date.value) setErr('bDateErr', 'Please select a preferred date.');
+  if (!service.value) setErr('bServiceErr', 'Please select a service.');
+  
+  if (valid) {
+    document.getElementById('successPopup').classList.add('show');
+    e.target.reset();
+  }
+});
+
+/* ============================
+   QUERY FORM
+   ============================ */
+document.getElementById('queryForm').addEventListener('submit', e => {
+  e.preventDefault();
+  alert('Your query has been sent! Bushra will respond within 24 hours.');
+  e.target.reset();
+});
+
+/* ============================
+   FLOATING QUOTE
+   ============================ */
+function showFloatingQuote() {
+  const fq = document.getElementById('floatingQuote');
+  const q = FLOAT_QUOTES[Math.floor(Math.random() * FLOAT_QUOTES.length)];
+  fq.textContent = '"' + q + '"';
+  fq.classList.add('show');
+  setTimeout(() => fq.classList.remove('show'), 6000);
+}
+
+/* ============================
+   INITIAL SCROLL CHECK
+   ============================ */
+window.dispatchEvent(new Event('scroll'));
+</script>
+</body>
+</html>
